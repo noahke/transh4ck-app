@@ -1,0 +1,7 @@
+@(events: List[models.Event])
+
+<ul>
+@for(event <- events) {
+  <li>@event.getName()</li>
+} 
+</ul>

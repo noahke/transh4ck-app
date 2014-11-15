@@ -1,0 +1,7 @@
+@(institutions: List[models.Institution])
+
+<ul>
+@for(institution <- institutions) {
+  <li>@institution.getName()</li>
+} 
+</ul>
