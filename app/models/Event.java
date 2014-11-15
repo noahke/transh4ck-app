@@ -1,10 +1,22 @@
 package models;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import play.data.validation.Constraints.Required;
+import play.db.ebean.Model;
 
-public class Event {
+@Entity
+@Table(name="events")
+public class Event extends Model{
+	
+	@Required
 	public String name;
+	
+	@Required
 	public String date;
-	public ArrayList<Object> users;
+	
+	public List<Object> users;
 	public String location;
 	// summary
 	
@@ -30,11 +42,11 @@ public class Event {
 		return date;
 	}
 	
-	public ArrayList getUsers()	{
+	public List getUsers()	{
 		return users;
 	}
 	
-	public ArrayList addUser(Object newUser)	{
+	public List addUser(Object newUser)	{
 		users.add(newUser);
 		return users;
 	}
