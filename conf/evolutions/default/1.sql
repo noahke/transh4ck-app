@@ -19,8 +19,9 @@ CREATE TABLE organizations (
 
 CREATE TABLE institutions (
 	id bigserial PRIMARY KEY,
-	name varchar(200) NOT NULL,
-	location varchar(200) NOT NULL	
+	name varchar(200) NOT NULL UNIQUE,
+	location varchar(200) NOT NULL,
+	url varchar(200) NOT NULL
 );
 
 CREATE TABLE events (
