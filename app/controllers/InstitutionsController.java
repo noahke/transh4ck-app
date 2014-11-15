@@ -7,7 +7,7 @@ import models.Institution;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-public class InstitutionsController extends Controller {
+public class InstitutionsController extends Application {
 	
 	public static Result foo() {
 		List<Institution> institutions = new LinkedList<Institution>();

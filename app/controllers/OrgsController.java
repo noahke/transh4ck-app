@@ -7,7 +7,7 @@ import models.Org;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-public class OrgsController extends Controller {
+public class OrgsController extends Application {
 	
 	public static Result foo() {
 		List<Org> orgs = new LinkedList<Org>();

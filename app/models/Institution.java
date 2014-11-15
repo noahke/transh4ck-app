@@ -1,12 +1,17 @@
 package models;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import play.Logger;
 import play.db.ebean.Model;
+
 
 @Entity
 @Table(name="institutions")
@@ -19,17 +24,20 @@ import play.db.ebean.Model;
 );
  */
 public class Institution extends Model {
-	// Annotations are added so that PostgreSQL successfully generates a new id for each user.
+	// Annotations are added so that PostgreSQL successfully generates a new id for each user.institutions
+	
+	private static final long serialVersionUID = 1774967170375160665L;
+
+	@Id
+	@SequenceGenerator(name="institutions_seq", sequenceName="institutions_id_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="institutions_seq")
+	private int id;
 	
 	private String name;
 	private String location;
-	private ArrayList orgs;
-	private ArrayList events;
+	private List<Org> orgs;
+	private List<Event> events;
 	private String url;
-	
-	public Institution()	{	
-		//this constructor is empty
-	}
 	
 	public static void createInstitution(Institution institution) {
 		Logger.debug("Saving institution: " + institution.toString());
@@ -41,6 +49,14 @@ public class Institution extends Model {
 		institution.update();
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName()	{
 		return name;
 	}
@@ -67,20 +83,20 @@ public class Institution extends Model {
 		return name;
 	}
 	
-	public ArrayList getOrgs()	{
+	public List<Org> getOrgs()	{
 		return orgs;
 	}
 	
-	public ArrayList addOrgs(Object newOrg)	{
+	public List<Org> addOrgs(Org newOrg)	{
 		orgs.add(newOrg);
 		return orgs;
 	}
 	
-	public ArrayList getEvents()	{
+	public List<Event> getEvents()	{
 		return events;
 	}
 	
-	public ArrayList addEvents(Object newEvent)	{
+	public List<Event> addEvent(Event newEvent)	{
 		events.add(newEvent);
 		return events;
 	}

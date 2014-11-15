@@ -31,11 +31,10 @@ public class Org extends Model {
 	private String contact;
 	
 	@Required
-	private String url;
+	private String summary;
 			
 	public static void createOrg(Org org) {
-		Logger.debug(org.toString());
-		
+		Logger.debug(org.toString());		
 		org.save();
 	}
 
@@ -71,12 +70,12 @@ public class Org extends Model {
 		this.contact = contact;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getSummary() {
+		return summary;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 	
 }
