@@ -33,7 +33,7 @@ public class Org extends Model {
 	@Required
 	private String url;
 			
-	public static void createShoes(Org org) {
+	public static void createOrg(Org org) {
 		Logger.debug(org.toString());
 		
 		org.save();
