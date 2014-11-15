@@ -51,6 +51,12 @@ CREATE TABLE organizationUsers (
 	organizationId integer references organizations(id) NOT NULL
 );
 
+CREATE TABLE institutionUsers (
+	id bigserial PRIMARY KEY,
+	userId integer references users(id) NOT NULL,
+	institutionId integer references institutions(id) NOT NULL
+);
+
 CREATE TABLE tags (
 	id bigserial PRIMARY KEY,
 	tagName varchar(200) NOT NULL	
