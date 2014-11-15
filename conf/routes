@@ -7,3 +7,10 @@ GET     /                           controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Hit this url to create test data
+GET		/test-data					controllers.Application.createTestData()
+
+GET 	/orgs						controllers.OrgsController.foo()
+GET		/events						controllers.EventsController.foo()
+GET		/institutions				controllers.InstitutionsController.foo()
