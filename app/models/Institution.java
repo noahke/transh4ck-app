@@ -1,17 +1,44 @@
 package models;
 
-import java.util.*;
+import java.util.ArrayList;
 
-public class Institution {
-	public String name;
-	public String location;
-	public ArrayList orgs;
-	public ArrayList events;
-	public String contact;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import play.Logger;
+import play.db.ebean.Model;
+
+@Entity
+@Table(name="institutions")
+/* from the database:
+ * CREATE TABLE institutions (
+	id bigserial PRIMARY KEY,
+	name varchar(200) NOT NULL UNIQUE,
+	location varchar(200) NOT NULL,
+	url varchar(200) NOT NULL
+);
+ */
+public class Institution extends Model {
+	// Annotations are added so that PostgreSQL successfully generates a new id for each user.
 	
-	public Institution()	{
-		orgs = new ArrayList<Object>();
-		events = new ArrayList<Object>();
+	private String name;
+	private String location;
+	private ArrayList orgs;
+	private ArrayList events;
+	private String url;
+	
+	public Institution()	{	
+		//this constructor is empty
+	}
+	
+	public static void createInstitution(Institution institution) {
+		Logger.debug("Saving institution: " + institution.toString());
+		institution.save();
+	}
+		
+	public static void updateInstitution(Institution institution) {
+		Logger.debug("Updating user: " + institution.toString());
+		institution.update();
 	}
 	
 	public String getName()	{
@@ -31,12 +58,12 @@ public class Institution {
 		location = newLocation;
 		return name;
 	}
-	public String getContact(){
-		return contact;
+	public String getURL(){
+		return url;
 	}
 	
-	public String setContact(String newContact)	{
-		contact = newContact;
+	public String setContact(String newURL)	{
+		url = newURL;
 		return name;
 	}
 	
