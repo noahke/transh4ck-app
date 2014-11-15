@@ -35,63 +35,40 @@ CREATE TABLE events (
 
 CREATE TABLE organizationInstitutions (
 	id bigserial PRIMARY KEY,
-	organizationId integer references organizations(id) NOT NULL,
-	institutionsId integer references institutions(id) NOT NULL
+	organizationId integer references organizations(id),
+	institutionId integer references institutions(id)
 );
 
 CREATE TABLE organizationEvents (
 	id bigserial PRIMARY KEY,
-	eventsId integer references events(id) NOT NULL,
-	organizationId integer references organizations(id) NOT NULL
+	eventsId integer references events(id),
+	organizationId integer references organizations(id)
 );
 
 CREATE TABLE organizationUsers (
 	id bigserial PRIMARY KEY,
-	userId integer references users(id) NOT NULL,
-	organizationId integer references organizations(id) NOT NULL
+	userId integer references users(id),
+	organizationId integer references organizations(id)
 );
 
 CREATE TABLE institutionUsers (
 	id bigserial PRIMARY KEY,
-	userId integer references users(id) NOT NULL,
-	institutionId integer references institutions(id) NOT NULL
-);
-
-CREATE TABLE tags (
-	id bigserial PRIMARY KEY,
-	tagName varchar(200) NOT NULL	
-);
-
-CREATE TABLE eventTags (
-	id bigserial PRIMARY KEY,
-	eventId integer references events(id) NOT NULL,
-	tagId integer references tags(id) NOT NULL
-);
-
-CREATE TABLE organizationTags (
-	id bigserial PRIMARY KEY,
-	organizationId integer references organizations(id) NOT NULL,
-	tagId integer references tags(id) NOT NULL
+	userId integer references users(id),
+	institutionId integer references institutions(id)
 );
 
 # --- !Downs
 
-DROP TABLE organizationTags;
+DROP TABLE if exists organizationUsers;
 
-DROP TABLE eventTags;
+DROP TABLE if exists organizationEvents;
 
-DROP TABLE tags;
+DROP TABLE if exists organizationInstitutions;
 
-DROP TABLE organizationUsers;
+DROP TABLE if exists events;
 
-DROP TABLE organizationEvents;
+DROP TABLE if exists institutions;
 
-DROP TABLE organizationInstitutions;
+DROP TABLE if exists organizations;
 
-DROP TABLE events;
-
-DROP TABLE institutions;
-
-DROP TABLE organizations;
-
-DROP TABLE users;
+DROP TABLE if exists users;

@@ -1,13 +1,17 @@
 package controllers;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import models.Org;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.index;
 
 public class OrgsController extends Controller {
 	
 	public static Result foo() {
-        return ok(index.render("Your new application is ready."));
+		List<Org> orgs = new LinkedList<Org>();
+        return ok(views.html.orgs.render(orgs));
     }
 
 }
