@@ -4,15 +4,17 @@
 	<h1>@org.getName()</h1>
 	<p>@org.getContact()</p>
 	<blockquote>@org.getSummary()</blockquote>
-	<h3>Events!</h3>
-	<ul>
-	@for(event <- recentEvents) {
-	  <li>
-	  	<h4><a href='@routes.EventsController.eventInfo(event.getId())'>@event.getName()</a></h4>
-		  <span>@event.getDate()</span>
-		  <br>
-		  <span>@event.getLocation()</span>
-		</li>
-	} 
-	</ul>
+	@if(!recentEvents.isEmpty()) {
+		<h3>Events!</h3>
+		<ul>
+		@for(event <- recentEvents) {
+			<li>
+		  	<h4><a href='@routes.EventsController.eventInfo(event.getId())'>@event.getName()</a></h4>
+			  <span>@event.getDate()</span>
+			  <br>
+			  <span>@event.getLocation()</span>
+			</li>
+		} 
+		</ul>
+	}
 }

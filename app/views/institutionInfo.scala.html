@@ -9,15 +9,17 @@
 	
 	
 	<p>@institution.getSummary()</p>
-	<h3>Organizations!</h3>
-	<ul>
-	@for(org <- institution.getOrgs()) {
-	  <li>
-	  	<h5><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h5>
-		  <p>@org.getContact()</p>
-		  <p>@org.getSummary()</p>
-		</li>
-	} 
-	</ul>
+	@if(!institution.getOrgs().isEmpty()) {
+		<h3>Organizations!</h3>
+		<ul>
+		@for(org <- institution.getOrgs()) {
+		  <li>
+		  	<h5><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h5>
+			  <p>@org.getContact()</p>
+			  <p>@org.getSummary()</p>
+			</li>
+		} 
+		</ul>
+	}
 	
 }
