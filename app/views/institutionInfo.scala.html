@@ -1,10 +1,16 @@
 @(institution: models.Institution)
 
 @main("Trans*H4CK - @institution.getName()") {
+
 	<h1>@institution.getName()</h1>
+<<<<<<< HEAD
 	<span>@institution.getContact()</span>
 	<p>@institution.getLocation()</p>
 	<a href="http://@institution.getUrl()">@institution.getUrl()</a>
 	<p>@institution.getSummary()</p>
+=======
+	<p>@institution.getContact()</p>
+	<p>@institution.getLocation()</p>
+>>>>>>> 8ae1e02035957a22d89c90fd1d3eb0f6dc67c493
 	
 }
