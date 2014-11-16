@@ -1,4 +1,5 @@
 package models;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,6 +35,9 @@ public class Org extends Model {
 	private String summary;
 	
 	private Institution institution;
+	
+	@Column(name = "imageUrl")
+	private String imageUrl;
 	
 	public static Finder<Integer,Org> find = new Finder<Integer,Org>(Integer.class, Org.class);
 			
@@ -88,6 +92,14 @@ public class Org extends Model {
 
 	public void setInstitution(Institution institution) {
 		this.institution = institution;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 	
 }

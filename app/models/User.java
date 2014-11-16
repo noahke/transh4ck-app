@@ -18,15 +18,20 @@ import play.db.ebean.Model;
 @Entity
 @Table(name="users")
 public class User extends Model {
+
+	private static final long serialVersionUID = -6980197029098359937L;
+
 	public String name;
 	
 	private Boolean publicEmail;
 	private List<Institution> insts;
 	private List<Org> orgs;
 	private String bio;
-		// public something icon
-	private String contact;
 	
+	@Column(name = "avatarUrl")
+	private String avatarUrl;
+	
+	private String contact;	
 	
 	@Id
 	@SequenceGenerator(name="users_seq", sequenceName="users_id_seq", allocationSize=0)
@@ -124,6 +129,22 @@ public class User extends Model {
 		
 	
 	
+	public String getAvatarUrl() {
+		return avatarUrl;
+	}
+
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
 	public String toString() {
 			return "User [id=" + id + ", username=" + name + ", email=" + email
 					+ "]";
