@@ -1,7 +1,5 @@
 package models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,8 +33,6 @@ public class Institution extends Model {
 	
 	private String name;
 	private String location;
-	private List<Org> orgs;
-	private List<Event> events;
 	private String url;
 	
 	public static Finder<Integer,Institution> find = new Finder<Integer,Institution>(Integer.class, Institution.class);
@@ -89,21 +85,4 @@ public class Institution extends Model {
 		return name;
 	}
 	
-	public List<Org> getOrgs()	{
-		return orgs;
-	}
-	
-	public List<Org> addOrgs(Org newOrg)	{
-		orgs.add(newOrg);
-		return orgs;
-	}
-	
-	public List<Event> getEvents()	{
-		return events;
-	}
-	
-	public List<Event> addEvent(Event newEvent)	{
-		events.add(newEvent);
-		return events;
-	}
 }

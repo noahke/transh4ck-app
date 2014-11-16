@@ -33,6 +33,8 @@ public class Org extends Model {
 	@Required
 	private String summary;
 	
+	private Institution institution;
+	
 	public static Finder<Integer,Org> find = new Finder<Integer,Org>(Integer.class, Org.class);
 			
 	public static void createOrg(Org org) {
@@ -78,6 +80,14 @@ public class Org extends Model {
 
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+
+	public Institution getInstitution() {
+		return institution;
+	}
+
+	public void setInstitution(Institution institution) {
+		this.institution = institution;
 	}
 	
 }

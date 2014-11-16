@@ -26,17 +26,20 @@ public class Event extends Model{
 	private int id;
 	
 	@Required
-	public String name;
+	private String name;
 	
 	@Required
 	@Column(name = "eventDate")
-	public Date eventDate;
+	private Date eventDate;
 	
-	public List<User> users;
-	public String location;
+	private List<User> users;
+	private String location;
 	
 	@Required
-	public String summary;
+	private String summary;
+	
+	@Required
+	private Org org;
 	
 	public static Finder<Integer,Event> find = new Finder<Integer,Event>(Integer.class, Event.class);
 	
@@ -95,6 +98,14 @@ public class Event extends Model{
 
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+
+	public Org getOrg() {
+		return org;
+	}
+
+	public void setOrg(Org org) {
+		this.org = org;
 	}
 	
 }
