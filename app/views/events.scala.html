@@ -1,9 +1,14 @@
 @(events: List[models.Event])
 @main("Trans*H4CK - Events") {
 
-	<ul>
+	<ul class="list-unstyled">
+		<h1>Events</h1>
 	@for(event <- events) {
-	  <li>@event.getName()</li>
+	  <li><h2>@event.getName()</h2>
+		  @event.getDate()
+		  <br/>
+		  @event.getLocation()</li>
+	  
 	} 
 	</ul>
 }

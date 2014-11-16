@@ -1,0 +1,13 @@
+// Mixin
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Usage
+.summary {
+  display: inline-block;
+  max-height: 10%;
+  .text-overflow();
+}
