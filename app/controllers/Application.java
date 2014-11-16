@@ -34,7 +34,7 @@ public class Application extends Controller {
     	Institution inst1 = new Institution();
     	int id = generateId();
     	inst1.setId(id);
-    	inst1.setName("Dartmouth University");
+    	inst1.setName("Dartmouth College");
     	inst1.setLocation("Hanover, New Hampshire");
     	inst1.setContact("Contact: Philip J. Hanlon, President");
     	inst1.setUrl("www.dartmouth.edu/");
