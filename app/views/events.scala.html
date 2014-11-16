@@ -4,7 +4,7 @@
 	<ul class="list-unstyled">
 		<h1>Events</h1>
 	@for(event <- events) {
-	  <li><h2>@event.getName()</h2>
+	  <li><h2><a href='@routes.EventsController.eventInfo(event.getId())'>@event.getName()</a></h2>
 		  @event.getDate()
 		  <br/>
 		  @event.getLocation()</li>
