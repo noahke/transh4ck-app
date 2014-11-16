@@ -3,6 +3,7 @@ package controllers;
 import java.util.LinkedList;
 import java.util.List;
 
+import models.Event;
 import models.Org;
 import play.mvc.Result;
 
@@ -19,7 +20,15 @@ public class OrgsController extends Application {
 		if (org == null) {
 			return ok(views.html.errorPage.render("Sorry, that org doesn't exist!!"));
 		}
-		return ok(views.html.orgInfo.render(org));
+		List<Event> mostRecentEvents = new LinkedList<Event>();
+		for (Event event: org.getEvents()) {
+			if (mostRecentEvents.size() <= 3) {
+				mostRecentEvents.add(event);
+			} else {
+				break;
+			}
+		}
+		return ok(views.html.orgInfo.render(org, mostRecentEvents));
 	}
 
 }

@@ -1,4 +1,6 @@
 package models;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,6 +42,8 @@ public class Org extends Model {
 	
 	@Column(name = "imageUrl")
 	private String imageUrl;
+	
+	private List<Event> events;
 	
 	public static Finder<Integer,Org> find = new Finder<Integer,Org>(Integer.class, Org.class);
 			
@@ -102,6 +106,17 @@ public class Org extends Model {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public List<Event> getEvents() {
+		if (events == null) {
+			events = Event.find.where().eq("orgId", id).findList();
+		}
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
 	}
 	
 }

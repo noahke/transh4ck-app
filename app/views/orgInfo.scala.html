@@ -1,8 +1,17 @@
-@(org: models.Org)
+@(org: models.Org, recentEvents: List[models.Event])
 @main("Trans*H4CK - @org.getName()") {
 
 	<h1>@org.getName()</h1>
 	<p>@org.getContact()</p>
 	<p>@org.getSummary()</p>
-	
+	<h3>Events!</h3>
+	<ul>
+	@for(event <- recentEvents) {
+	  <li>
+	  	<h5><a href='@routes.EventsController.eventInfo(event.getId())'>@event.getName()</a></h5>
+		  <p>@event.getDate()</p>
+		  <p>@event.getLocation()</p>
+		</li>
+	} 
+	</ul>
 }

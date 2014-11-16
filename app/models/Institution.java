@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,6 +39,7 @@ public class Institution extends Model {
 	private String location;
 	private String url;
 	private String summary;
+	private List<Org> orgs;
 	
 	@Column(name = "imageUrl")
 	private String imageUrl;
@@ -108,6 +111,17 @@ public class Institution extends Model {
 
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+	
+	public List<Org> getOrgs() {
+		if (orgs == null) {
+			orgs = Org.find.where().eq("institutionId", id).findList();
+		}
+		return orgs;
+	}
+
+	public void setOrgs(List<Org> orgs) {
+		this.orgs = orgs;
 	}
 	
 }
