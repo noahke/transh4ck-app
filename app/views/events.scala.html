@@ -6,7 +6,7 @@
 	@for(event <- events) {
 	  <li><h2><a href='@routes.EventsController.eventInfo(event.getId())'>@event.getName()</a></h2>
 		  <span>@event.getDate()</span>
-		  <br>
+<br/>
 		  <span>@event.getLocation()</span>
 		</li>	  
 	} 

@@ -6,7 +6,7 @@
 	@for(org <- orgs) {
 	  <li><h2><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h2>
 		  @org.getContact()
-		  </br>
+		  <br/>
 		  <p class="summary">@org.getSummary()</p>
 	  </li>
 	} 
