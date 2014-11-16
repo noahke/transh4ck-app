@@ -3,17 +3,19 @@
 @main("Trans*H4CK - @institution.getName()") {
 
 	<h1>@institution.getName()</h1>
-	<span>@institution.getContact()</span>
-	<p>@institution.getLocation()</p>
-	<a href="http://@institution.getUrl()">@institution.getUrl()</a>
+	<p>@institution.getLocation()<br/>
+	<a href="http://@institution.getUrl()">@institution.getUrl()</a><br/>
+	@institution.getContact()</p>
+	
+	
 	<p>@institution.getSummary()</p>
 	<h3>Organizations!</h3>
 	<ul>
 	@for(org <- institution.getOrgs()) {
 	  <li>
-	  	<h4><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h4>
-		  <span>@org.getContact()</span>
-		  <span>@org.getSummary()</span>
+	  	<h5><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h5>
+		  <p>@org.getContact()</p>
+		  <p>@org.getSummary()</p>
 		</li>
 	} 
 	</ul>

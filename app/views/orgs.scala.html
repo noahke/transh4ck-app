@@ -5,9 +5,9 @@
 	<ul class="list-unstyled">
 	@for(org <- orgs) {
 	  <li><h2><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h2>
-		  @org.getContact()
-		  <br/>
-		  <p class="summary">@org.getSummary()</p>
+		  <p>@org.getContact()</p>
+		  
+		  <blockquote class="summary">@org.getSummary()</blockquote>
 	  </li>
 	} 
 	</ul>
