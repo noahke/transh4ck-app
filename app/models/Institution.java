@@ -36,6 +36,7 @@ public class Institution extends Model {
 	private String contact;
 	private String location;
 	private String url;
+	private String summary;
 	
 	@Column(name = "imageUrl")
 	private String imageUrl;
@@ -99,6 +100,14 @@ public class Institution extends Model {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 	
 }

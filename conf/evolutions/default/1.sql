@@ -16,7 +16,8 @@ CREATE TABLE institutions (
 	contact varchar(200),
 	location varchar(200) NOT NULL,
 	url varchar(200) NOT NULL,
-	imageUrl varchar(200)
+	imageUrl varchar(200),
+	summary text
 );
 
 CREATE TABLE organizations (
