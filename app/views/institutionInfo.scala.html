@@ -13,9 +13,9 @@
 	<ul>
 	@for(org <- institution.getOrgs()) {
 	  <li>
-	  	<h5><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h5>
-		  <p>@org.getContact()</p>
-		  <p>@org.getSummary()</p>
+	  	<h4><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h4>
+		  <span>@org.getContact()</span>
+		  <span>@org.getSummary()</span>
 		</li>
 	} 
 	</ul>

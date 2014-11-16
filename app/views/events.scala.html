@@ -1,14 +1,14 @@
 @(events: List[models.Event])
 @main("Trans*H4CK - Events") {
 
+	<h1>Events</h1>
 	<ul class="list-unstyled">
-		<h1>Events</h1>
 	@for(event <- events) {
 	  <li><h2><a href='@routes.EventsController.eventInfo(event.getId())'>@event.getName()</a></h2>
-		  @event.getDate()
-		  <br/>
-		  @event.getLocation()</li>
-	  
+		  <span>@event.getDate()</span>
+		  <br>
+		  <span>@event.getLocation()</span>
+		</li>	  
 	} 
 	</ul>
 }
