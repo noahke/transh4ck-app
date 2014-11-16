@@ -86,7 +86,7 @@ public class Institution extends Model {
 		location = newLocation;
 		return name;
 	}
-	public String getURL(){
+	public String getUrl(){
 		return url;
 	}
 	
@@ -101,7 +101,7 @@ public class Institution extends Model {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-
+	
 	public String getSummary() {
 		return summary;
 	}
