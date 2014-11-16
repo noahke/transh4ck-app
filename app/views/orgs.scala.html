@@ -1,7 +1,7 @@
 @(orgs: List[models.Org])
 
 @main("Trans*H4CK - Organizations") {
-	<h1> Here are the organizations that are already using our web app!</h1>
+	<h1> Here are the organizations that are already using our web site!</h1>
 	<ul class="list-unstyled">
 	@for(org <- orgs) {
 	  <li><h2><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h2>

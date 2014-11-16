@@ -1,6 +1,6 @@
 @(institutions: List[models.Institution])
 @main("Trans*H4CK - Institutions") {
-	<h1> Here are the institutions that are already using our app!</h1>
+	<h1> Here are the institutions that are already using our site!</h1>
 	<ul class="list-unstyled">
 	@for(institution <- institutions) {
 	  <li><h2><a href='@routes.InstitutionsController.institutionInfo(institution.getId())'>@institution.getName()</a></h2>
