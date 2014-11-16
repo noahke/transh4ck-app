@@ -1,29 +1,61 @@
 package models;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import play.Logger;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
 @Entity
 @Table(name="events")
 public class Event extends Model{
+
+	private static final long serialVersionUID = 8402775284782646080L;
+
+	@Id
+	@SequenceGenerator(name="institutions_seq", sequenceName="institutions_id_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="institutions_seq")
+	private int id;
 	
 	@Required
-	public String name;
+	private String name;
 	
 	@Required
-	public String date;
+	@Column(name = "eventDate")
+	private Date eventDate;
 	
-	public List<Object> users;
-	public String location;
-	// summary
+	private List<User> users;
+	private String location;
 	
-	public Event()	{
-		users = new ArrayList<Object>();
+	@Required
+	private String summary;
+	
+	@Required
+	private Org org;
+	
+	public static Finder<Integer,Event> find = new Finder<Integer,Event>(Integer.class, Event.class);
+	
+	public static void createEvent(Event event) {
+		Logger.debug("Saving event: " + event.toString());
+		event.save();
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName()	{
 		return name;
 	}
@@ -33,20 +65,20 @@ public class Event extends Model{
 		return name;
 	}
 	
-	public String getDate()	{
-		return date;
+	public Date getDate()	{
+		return eventDate;
 	}
 	
-	public String setDate(String newDate)	{
-		date = newDate;
-		return date;
+	public Date setEventDate(Date newDate)	{
+		eventDate = newDate;
+		return eventDate;
 	}
 	
-	public List getUsers()	{
+	public List<User> getUsers()	{
 		return users;
 	}
 	
-	public List addUser(Object newUser)	{
+	public List<User> addUser(User newUser)	{
 		users.add(newUser);
 		return users;
 	}
@@ -58,6 +90,22 @@ public class Event extends Model{
 	public String setLocation(String newLocation)	{
 		location = newLocation;
 		return location;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public Org getOrg() {
+		return org;
+	}
+
+	public void setOrg(Org org) {
+		this.org = org;
 	}
 	
 }

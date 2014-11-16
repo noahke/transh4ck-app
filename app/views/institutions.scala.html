@@ -1,7 +1,13 @@
 @(institutions: List[models.Institution])
 
+<h1> Here are the institutions that are already using our app!</h1>
 <ul>
 @for(institution <- institutions) {
-  <li>@institution.getName()</li>
+  <li><h2>@institution.getName()</h2>
+  @institution.getLocation() - @institution.getURL()
+  <br>
+  Number of Organizations
+  <br>
+  </li>
 } 
 </ul>

@@ -1,7 +1,22 @@
-@(orgs: List[models.Org])
+@(orgs: List[models.Org], institutions: List[models.Institution], events: List[models.Event])
 
+<h1>ORGS!!!</h1>
 <ul>
 @for(org <- orgs) {
   <li>@org.getName()</li>
+} 
+</ul>
+
+<h2>INSTITUTIONS!!</h2>
+<ul>
+@for(institution <- institutions) {
+  <li>@institution.getName()</li>
+} 
+</ul>
+
+<h2>EVENTS!?!</h2>
+<ul>
+@for(event <- events) {
+  <li>@event.getName()</li>
 } 
 </ul>
