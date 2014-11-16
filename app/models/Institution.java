@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,8 +33,12 @@ public class Institution extends Model {
 	private int id;
 	
 	private String name;
+	private String contact;
 	private String location;
 	private String url;
+	
+	@Column(name = "imageUrl")
+	private String imageUrl;
 	
 	public static Finder<Integer,Institution> find = new Finder<Integer,Institution>(Integer.class, Institution.class);
 	
@@ -64,6 +69,14 @@ public class Institution extends Model {
 		return name;
 	}
 	
+	public String getContact() {
+		return contact;
+	}
+	
+	public void setContact(String contact)	{
+		this.contact = contact;
+	}
+	
 	public String getLocation()	{
 		return location;
 	}
@@ -80,9 +93,12 @@ public class Institution extends Model {
 		this.url = url;
 	}
 
-	public String setContact(String newURL)	{
-		url = newURL;
-		return name;
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 	
 }

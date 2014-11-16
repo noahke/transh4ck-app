@@ -6,14 +6,17 @@ CREATE TABLE users (
 	pswhsh text NOT NULL,
 	bio text,
 	contact text,
-	contactable boolean
+	contactable boolean,
+	avatarUrl varchar(200)
 );
 
 CREATE TABLE institutions (
 	id bigserial PRIMARY KEY,
 	name varchar(200) NOT NULL UNIQUE,
+	contact varchar(200),
 	location varchar(200) NOT NULL,
-	url varchar(200) NOT NULL
+	url varchar(200) NOT NULL,
+	imageUrl varchar(200)
 );
 
 CREATE TABLE organizations (
@@ -22,7 +25,8 @@ CREATE TABLE organizations (
 	owner integer references users(id),
 	contact text NOT NULL,
 	summary text NOT NULL,
-	institution integer references institutions(id)
+	institution integer references institutions(id),
+	imageUrl varchar(200)
 );
 
 CREATE TABLE events (
@@ -31,7 +35,8 @@ CREATE TABLE events (
 	eventDate date NOT NULL,
 	location varchar(200) NOT NULL,
 	summary text NOT NULL,
-	org integer references organizations(id)
+	org integer references organizations(id),
+	imageUrl varchar(200)
 );
 
 CREATE TABLE organizationUsers (

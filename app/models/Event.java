@@ -41,6 +41,9 @@ public class Event extends Model{
 	@Required
 	private Org org;
 	
+	@Column(name = "imageUrl")
+	private String imageUrl;
+	
 	public static Finder<Integer,Event> find = new Finder<Integer,Event>(Integer.class, Event.class);
 	
 	public static void createEvent(Event event) {
@@ -98,6 +101,14 @@ public class Event extends Model{
 
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public Org getOrg() {

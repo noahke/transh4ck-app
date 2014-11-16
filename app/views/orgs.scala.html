@@ -1,11 +1,10 @@
-
 @(orgs: List[models.Org])
 
 @main("Trans*H4CK - Organizations") {
 	<h1> Here are the organizations that are already using our web app!</h1>
 	<ul>
 	@for(org <- orgs) {
-	  <li><h2>@org.getName()</h2>
+	  <li><h2><a href='@routes.OrgsController.orgInfo(org.getId())'>@org.getName()</a></h2>
 	  @org.getContact()
 	  <br>
 	  @org.getSummary()
