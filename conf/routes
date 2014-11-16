@@ -11,6 +11,14 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 # Hit this url to create test data
 GET		/test-data					controllers.Application.createTestData()
 
-GET 	/orgs						controllers.OrgsController.foo()
-GET		/events						controllers.EventsController.foo()
-GET		/institutions				controllers.InstitutionsController.foo()
+# Org pages
+GET 	/orgs						controllers.OrgsController.allOrgs()
+GET		/orgs/:id					controllers.OrgsController.orgInfo(id: Integer)
+
+# Event pages
+GET		/events						controllers.EventsController.allEvents()
+GET		/events/:id					controllers.EventsController.eventInfo(id: Integer)
+
+# Institution pages
+GET		/institutions				controllers.InstitutionsController.allInstitutions()
+GET		/events/:id					controllers.InstitutionsController.institutionInfo(id: Integer)
