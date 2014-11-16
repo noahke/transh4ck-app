@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.PersistenceException;
@@ -19,7 +18,7 @@ public class EventsController extends Application {
 	private static Form<Event> eventForm = Form.form(Event.class);
 	
 	public static Result allEvents() {
-		List<Event> events = new LinkedList<Event>();
+		List<Event> events = Event.find.all();
         return ok(views.html.events.render(events));
     }
 	
