@@ -1,13 +1,16 @@
+
 @(orgs: List[models.Org])
 
-<h1> Here are the organizations that are already using our web app!</h1>
-<ul>
-@for(org <- orgs) {
-  <li><h2>@org.getName()</h2>
-  @org.getContact()
-  <br>
-  @org.getSummary()
-  <br>
-  </li>
-} 
-</ul>
+@main("Trans*H4CK - Organizations") {
+	<h1> Here are the organizations that are already using our web app!</h1>
+	<ul>
+	@for(org <- orgs) {
+	  <li><h2>@org.getName()</h2>
+	  @org.getContact()
+	  <br>
+	  @org.getSummary()
+	  <br>
+	  </li>
+	} 
+	</ul>
+}

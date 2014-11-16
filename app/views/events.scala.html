@@ -1,7 +1,9 @@
 @(events: List[models.Event])
+@main("Trans*H4CK - Events") {
 
-<ul>
-@for(event <- events) {
-  <li>@event.getName()</li>
-} 
-</ul>
+	<ul>
+	@for(event <- events) {
+	  <li>@event.getName()</li>
+	} 
+	</ul>
+}
