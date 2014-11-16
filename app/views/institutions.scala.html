@@ -1,13 +1,17 @@
 @(institutions: List[models.Institution])
 @main("Trans*H4CK - Institutions") {
 	<h1> Here are the institutions that are already using our app!</h1>
-	<ul>
+	<ul class="list-unstyled">
 	@for(institution <- institutions) {
-	  <li><h2>@institution.getName()</h2>
-	  @institution.getLocation() - @institution.getURL()
-	  <br>
-	  Number of Organizations
-	  <br>
+	  <li><h2>@institution.getName()</h2> Number of Organizations
+		  <br/>
+	  @institution.getLocation() 
+	  <br/>
+	  <a href="http://@institution.getURL()">@institution.getURL()</a>
+	  
+	  <br/>
+	  
+	  <br/>
 	  </li>
 	} 
 	</ul>

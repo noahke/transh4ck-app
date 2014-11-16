@@ -3,13 +3,11 @@
 
 @main("Trans*H4CK - Organizations") {
 	<h1> Here are the organizations that are already using our web app!</h1>
-	<ul>
+	<ul class="list-unstyled">
 	@for(org <- orgs) {
 	  <li><h2>@org.getName()</h2>
 	  @org.getContact()
-	  <br>
-	  @org.getSummary()
-	  <br>
+	  <p class="summary">@org.getSummary()</p>
 	  </li>
 	} 
 	</ul>
