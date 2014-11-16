@@ -80,6 +80,10 @@ public class Institution extends Model {
 		return url;
 	}
 	
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public String setContact(String newURL)	{
 		url = newURL;
 		return name;

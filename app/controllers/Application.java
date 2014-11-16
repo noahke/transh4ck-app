@@ -43,6 +43,7 @@ public class Application extends Controller {
     	inst1.setName("Generic University " + generateId());
     	inst1.setLocation("Massachusetts");
     	inst1.setContact("Some University Person!");
+    	inst1.setUrl("www.yaycollege.edu");
     	Institution.createInstitution(inst1);
     	
     	Event event = new Event();
