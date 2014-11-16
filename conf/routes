@@ -18,7 +18,9 @@ GET		/orgs/:id					controllers.OrgsController.orgInfo(id: Integer)
 # Event pages
 GET		/events						controllers.EventsController.allEvents()
 GET		/events/:id					controllers.EventsController.eventInfo(id: Integer)
+GET		/eventCreator				controllers.EventsController.eventCreation()
+POST	/createEvent				controllers.EventsController.createEvent()
 
 # Institution pages
 GET		/institutions				controllers.InstitutionsController.allInstitutions()
-GET		/events/:id					controllers.InstitutionsController.institutionInfo(id: Integer)
+GET		/institutions/:id			controllers.InstitutionsController.institutionInfo(id: Integer)

@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.Calendar;
 import java.util.Random;
 
 import models.Event;
@@ -8,8 +7,7 @@ import models.Institution;
 import models.Org;
 import play.mvc.Controller;
 import play.mvc.Result;
-
-import views.html.*;
+import views.html.index;
 
 public class Application extends Controller {
 	
@@ -41,7 +39,7 @@ public class Application extends Controller {
     	org1.setName("Trans H4CK " + id);
     	org1.setContact("Kortney");
     	org1.setSummary("yay hacking!!");
-    	org1.setInstitution(inst1);
+    	org1.setInstitutionId(inst1.getId());
     	Org.createOrg(org1);
     	
     	Org org2 = new Org();
@@ -50,7 +48,7 @@ public class Application extends Controller {
     	org2.setName("Trans H4CK " + id);
     	org2.setContact("Kortney");
     	org2.setSummary("yay hacking!!");
-    	org2.setInstitution(inst1);
+    	org2.setInstitutionId(inst1.getId());
     	Org.createOrg(org2);
     	
     	Event event = new Event();
@@ -59,8 +57,8 @@ public class Application extends Controller {
     	event.setName("Trans H4CK Boston " + id + "!");
     	event.setLocation("Harvard Innovation Lab");
     	event.setSummary("A super cool hackathon!");
-    	event.setEventDate(Calendar.getInstance().getTime());
-    	event.setOrg(org1);
+    	event.setEventDate("11/16/14");
+    	event.setOrgId(org1.getId());
     	Event.createEvent(event);
     	
     	return ok(views.html.testdata.render(Org.find.all(), Institution.find.all(), Event.find.all()));

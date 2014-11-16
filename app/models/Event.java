@@ -1,5 +1,4 @@
 package models;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -30,7 +29,7 @@ public class Event extends Model{
 	
 	@Required
 	@Column(name = "eventDate")
-	private Date eventDate;
+	private String eventDate;
 	
 	private List<User> users;
 	private String location;
@@ -38,8 +37,8 @@ public class Event extends Model{
 	@Required
 	private String summary;
 	
-	@Required
-	private Org org;
+	@Column(name = "orgId")
+	private int orgId;
 	
 	@Column(name = "imageUrl")
 	private String imageUrl;
@@ -68,11 +67,11 @@ public class Event extends Model{
 		return name;
 	}
 	
-	public Date getDate()	{
+	public String getDate()	{
 		return eventDate;
 	}
 	
-	public Date setEventDate(Date newDate)	{
+	public String setEventDate(String newDate)	{
 		eventDate = newDate;
 		return eventDate;
 	}
@@ -111,12 +110,12 @@ public class Event extends Model{
 		this.imageUrl = imageUrl;
 	}
 
-	public Org getOrg() {
-		return org;
+	public int getOrgId() {
+		return orgId;
 	}
 
-	public void setOrg(Org org) {
-		this.org = org;
+	public void setOrgId(int orgId) {
+		this.orgId = orgId;
 	}
 	
 }

@@ -1,3 +1,5 @@
+@(orgs: List[models.Org])
+
 @main("Trans*H4CK - OrgName") {
 	<form role="form">
 	  <div class="form-group">
@@ -14,7 +16,7 @@
 	  </div>
 	  <textarea class="form-control" rows="3" placeholder="Summary"></textarea>
 	  <select class="form-control">
-		  for(org <- orgs) {
+		  @for(org <- orgs) {
 			  <option>@org.getName()</option>
 			  }
 	  </select>

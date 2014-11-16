@@ -34,7 +34,9 @@ public class Org extends Model {
 	@Required
 	private String summary;
 	
-	private Institution institution;
+	@Required
+	@Column(name = "institutionId")
+	private int institutionId;
 	
 	@Column(name = "imageUrl")
 	private String imageUrl;
@@ -86,12 +88,12 @@ public class Org extends Model {
 		this.summary = summary;
 	}
 
-	public Institution getInstitution() {
-		return institution;
+	public int getInstitutionId() {
+		return institutionId;
 	}
 
-	public void setInstitution(Institution institution) {
-		this.institution = institution;
+	public void setInstitutionId(int institutionId) {
+		this.institutionId = institutionId;
 	}
 
 	public String getImageUrl() {

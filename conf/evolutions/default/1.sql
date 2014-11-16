@@ -25,17 +25,17 @@ CREATE TABLE organizations (
 	owner integer references users(id),
 	contact text NOT NULL,
 	summary text NOT NULL,
-	institution integer references institutions(id),
+	institutionId integer references institutions(id),
 	imageUrl varchar(200)
 );
 
 CREATE TABLE events (
 	id bigserial PRIMARY KEY,
 	name varchar(200) NOT NULL,
-	eventDate date NOT NULL,
+	eventDate varchar(200) NOT NULL,
 	location varchar(200) NOT NULL,
 	summary text NOT NULL,
-	org integer references organizations(id),
+	orgId integer references organizations(id),
 	imageUrl varchar(200)
 );
 
