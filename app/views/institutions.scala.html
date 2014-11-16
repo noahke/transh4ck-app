@@ -3,7 +3,7 @@
 	<h1> Here are the institutions that are already using our app!</h1>
 	<ul>
 	@for(institution <- institutions) {
-	  <li><h2>@institution.getName()</h2>
+	  <li><h2><a href='@routes.InstitutionsController.institutionInfo(institution.getId())'>@institution.getName()</a></h2>
 	  @institution.getLocation() - @institution.getURL()
 	  <br>
 	  Number of Organizations
