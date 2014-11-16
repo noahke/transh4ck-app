@@ -1,6 +1,8 @@
 package models;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import play.Logger;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
@@ -26,7 +29,8 @@ public class Event extends Model{
 	public String name;
 	
 	@Required
-	public String eventDate;
+	@Column(name = "eventDate")
+	public Date eventDate;
 	
 	public List<User> users;
 	public String location;
@@ -36,6 +40,19 @@ public class Event extends Model{
 	
 	public static Finder<Integer,Event> find = new Finder<Integer,Event>(Integer.class, Event.class);
 	
+	public static void createEvent(Event event) {
+		Logger.debug("Saving event: " + event.toString());
+		event.save();
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName()	{
 		return name;
 	}
@@ -45,11 +62,11 @@ public class Event extends Model{
 		return name;
 	}
 	
-	public String getDate()	{
+	public Date getDate()	{
 		return eventDate;
 	}
 	
-	public String setDate(String newDate)	{
+	public Date setEventDate(Date newDate)	{
 		eventDate = newDate;
 		return eventDate;
 	}

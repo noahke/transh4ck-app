@@ -1,7 +1,10 @@
 package controllers;
 
+import java.util.Calendar;
 import java.util.Random;
 
+import models.Event;
+import models.Institution;
 import models.Org;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -35,7 +38,22 @@ public class Application extends Controller {
     	org2.setSummary("yay hacking!!");
     	Org.createOrg(org2);
     	
-    	return ok(views.html.testdata.render(Org.find.all()));
+    	Institution inst1 = new Institution();
+    	inst1.setId(generateId());
+    	inst1.setName("Generic University " + generateId());
+    	inst1.setLocation("Massachusetts");
+    	inst1.setContact("Some University Person!");
+    	Institution.createInstitution(inst1);
+    	
+    	Event event = new Event();
+    	event.setId(generateId());
+    	event.setName("Trans H4CK Boston " + generateId() + "!");
+    	event.setLocation("Harvard Innovation Lab");
+    	event.setSummary("A super cool hackathon!");
+    	event.setEventDate(Calendar.getInstance().getTime());
+    	Event.createEvent(event);
+    	
+    	return ok(views.html.testdata.render(Org.find.all(), Institution.find.all(), Event.find.all()));
     }
 
 }
