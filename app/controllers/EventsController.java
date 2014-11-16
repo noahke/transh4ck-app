@@ -23,7 +23,10 @@ public class EventsController extends Application {
     }
 	
 	public static Result eventInfo(Integer id) {
-		Event event = new Event();
+		Event event = Event.find.byId(id);
+		if (event == null) {
+			return ok(views.html.errorPage.render("Sorry, that event doesn't exist!!"));
+		}
 		return ok(views.html.eventInfo.render(event));
 	}
 	
