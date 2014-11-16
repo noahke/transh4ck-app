@@ -1,3 +1,7 @@
 @(event: models.Event)
 @main("Trans*H4CK - Events") {
+	<h1>@event.getName()</h1>
+	<address>@event.getLocation</address>
+	<span>@event.getDate</span>
+	<p>@event.getSummary</p>
 }

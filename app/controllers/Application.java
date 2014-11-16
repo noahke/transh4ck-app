@@ -37,7 +37,7 @@ public class Application extends Controller {
     	id = generateId();
     	org1.setId(id);
     	org1.setName("Trans H4CK " + id);
-    	org1.setContact("Kortney");
+    	org1.setContact("http://boston.transhack.org/");
     	org1.setSummary("yay hacking!!");
     	org1.setInstitutionId(inst1.getId());
     	Org.createOrg(org1);
