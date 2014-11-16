@@ -134,16 +134,36 @@ public class Application extends Controller {
     	event4.setOrgId(org2.getId());
     	Event.createEvent(event4);
     	
+    	Event event6 = new Event();
+    	id = generateId();
+    	event6.setId(id);
+    	event6.setName("Let's Talk About Nonbinary Pronouns!!!!!!");
+    	event6.setLocation("qcac in greenwich 4");
+    	event6.setSummary("Community dialogue sort of thing | Facilitated by Sarah, Eli, and Riley, who are all trying to figure out all these things too | Nonbinary-focused but there's no 'must be this trans to participate' requirement | There will be food!!!!!!!");
+    	event6.setEventDate("Tuesday, October 21 at 6:00pm");
+    	event6.setOrgId(org3.getId());
+    	Event.createEvent(event6);
+    	
     	// Dartmouth
     	Event event2 = new Event();
     	id = generateId();
     	event2.setId(id);
     	event2.setName("President's Office Sit In");
     	event2.setLocation("Dartmouth College President’s Office");
-    	event2.setSummary("A super cool hackathon!");
+    	event2.setSummary("Students sat in President’s Office to initiate response to Freedom Budget");
     	event2.setEventDate("April 9th, 2014");
     	event2.setOrgId(org4.getId());
     	Event.createEvent(event2);
+    	
+    	Event event5 = new Event();
+    	id = generateId();
+    	event5.setId(id);
+    	event5.setName("(Dis)Orientation Guide");
+    	event5.setLocation("Dartmouth College");
+    	event5.setSummary("This guide was created by many members of the The Dartmouth Radical and The Dartmouth Action Collective. We believe that there is a need for an orientation guide that provides our truths, and prepares underclassmen for a Dartmouth that we ourselves were unprepared to face. We also wish to preserve institutional memory of recent activism and progressive thought at Dartmouth.");
+    	event5.setEventDate("September 15th, 2014");
+    	event5.setOrgId(org4.getId());
+    	Event.createEvent(event5);
     	
     	return ok(views.html.testdata.render(Org.find.all(), Institution.find.all(), Event.find.all()));
     }
