@@ -11,6 +11,7 @@ public class InstitutionsController extends Application {
 	
 	public static Result foo() {
 		List<Institution> institutions = new LinkedList<Institution>();
+		institutions = Institution.find.all();
         return ok(views.html.institutions.render(institutions));
     }
 
