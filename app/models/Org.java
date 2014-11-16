@@ -32,6 +32,8 @@ public class Org extends Model {
 	
 	@Required
 	private String summary;
+	
+	public static Finder<Integer,Org> find = new Finder<Integer,Org>(Integer.class, Org.class);
 			
 	public static void createOrg(Org org) {
 		Logger.debug(org.toString());		

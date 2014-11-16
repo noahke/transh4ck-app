@@ -39,6 +39,8 @@ public class Institution extends Model {
 	private List<Event> events;
 	private String url;
 	
+	public static Finder<Integer,Institution> find = new Finder<Integer,Institution>(Integer.class, Institution.class);
+	
 	public static void createInstitution(Institution institution) {
 		Logger.debug("Saving institution: " + institution.toString());
 		institution.save();

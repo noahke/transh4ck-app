@@ -1,7 +1,5 @@
 package controllers;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 
 import models.Org;
@@ -21,17 +19,23 @@ public class Application extends Controller {
     
     public static Result createTestData() {
     	// oh god this is so hacky
-    	Org org = new Org();
+    	// You will have a mess-load of terrible test data, but it'll exist at least!
+
+    	Org org1 = new Org();
+    	org1.setId(generateId());
+    	org1.setName("Trans H4CK " + generateId());
+    	org1.setContact("Kortney");
+    	org1.setSummary("yay hacking!!");
+    	Org.createOrg(org1);
     	
-    	// OH GOD THIS IS EVEN WORSE   	
-    	org.setId(generateId());
-    	org.setName("Trans H4CK");
-    	org.setContact("Kortney");
-    	org.setSummary("yay hacking!!");
-    	Org.createOrg(org);
-    	List<Org> orgs = new LinkedList<Org>();
-    	orgs.add(org);
-    	return ok(views.html.testdata.render(orgs));
+    	Org org2 = new Org();
+    	org2.setId(generateId());
+    	org2.setName("Trans H4CK " + generateId());
+    	org2.setContact("Kortney");
+    	org2.setSummary("yay hacking!!");
+    	Org.createOrg(org2);
+    	
+    	return ok(views.html.testdata.render(Org.find.all()));
     }
 
 }
